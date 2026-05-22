@@ -409,8 +409,8 @@ button{
 .sound-button.muted::after{
   content:"";
   position:absolute;
-  width:52px;
-  height:5px;
+  width:35px;
+  height:2px;
   border-radius:999px;
   background:#f4c64b;
   transform:rotate(-42deg);
