@@ -108,7 +108,7 @@ export default function App() {
   useEffect(() => {
     if (!soundOn) {
       stopMusic();
-    } else if (screen === "quiz") {
+    } else {
       startMusic(true);
     }
   }, [soundOn, screen]);
@@ -144,7 +144,6 @@ export default function App() {
 
   function startGame() {
     playClick();
-    startMusic();
     setScreen("quiz");
     setCurrent(0);
     setScore(0);
