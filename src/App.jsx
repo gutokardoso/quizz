@@ -17,6 +17,7 @@ const questions = [
 
 export default function App() {
   const [screen, setScreen] = useState("home");
+  const [soundOn, setSoundOn] = useState(true);
   const [current, setCurrent] = useState(0);
   const [score, setScore] = useState(0);
   const [selected, setSelected] = useState(null);
@@ -32,6 +33,7 @@ export default function App() {
   }
 
   function tone(freq, duration = 0.15, type = "sine", volume = 0.03) {
+    if (!soundOn) return;
     const ctx = getCtx();
     const osc = ctx.createOscillator();
     const gain = ctx.createGain();
@@ -99,6 +101,10 @@ export default function App() {
   }
 
   useEffect(() => {
+    if (!soundOn) stopMusic();
+  }, [soundOn]);
+
+  useEffect(() => {
     if (screen !== "quiz" || selected !== null) return;
 
     if (time <= 0) {
@@ -110,6 +116,17 @@ export default function App() {
     const timer = setTimeout(() => setTime((v) => v - 1), 1000);
     return () => clearTimeout(timer);
   }, [time, screen, selected]);
+
+  function toggleSound() {
+    const next = !soundOn;
+    setSoundOn(next);
+
+    if (!next) {
+      stopMusic();
+    } else if (screen === "quiz") {
+      setTimeout(() => startMusic(), 50);
+    }
+  }
 
   function startGame() {
     playClick();
@@ -166,6 +183,9 @@ export default function App() {
     return (
       <main className="home-stage">
         <img src="/start-screen-layout.png" className="background-image" alt="" />
+        <button className="sound-button" onClick={toggleSound} aria-label={soundOn ? "Desligar som" : "Ligar som"}>
+          {soundOn ? "🔊" : "🔇"}
+        </button>
         <button className="start-button" onClick={startGame}>
           COMEÇAR DESAFIO
         </button>
@@ -176,6 +196,9 @@ export default function App() {
   if (screen === "result") {
     return (
       <main className="result-stage">
+        <button className="sound-button" onClick={toggleSound} aria-label={soundOn ? "Desligar som" : "Ligar som"}>
+          {soundOn ? "🔊" : "🔇"}
+        </button>
         <section className="result-card">
           <div className="trophy-area">
             <div className="trophy-glow"></div>
@@ -205,6 +228,9 @@ export default function App() {
 
   return (
     <main className="game-stage">
+      <button className="sound-button" onClick={toggleSound} aria-label={soundOn ? "Desligar som" : "Ligar som"}>
+        {soundOn ? "🔊" : "🔇"}
+      </button>
       <section className="card">
         <div className="topbar">
           <span>Pergunta {current + 1} de 10</span>
