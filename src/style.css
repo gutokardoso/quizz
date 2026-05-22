@@ -416,3 +416,51 @@ button{
   transform:rotate(-42deg);
   box-shadow:0 0 10px rgba(244,198,75,.85);
 }
+
+
+.top-actions{
+  position:fixed;
+  top:24px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  align-items:center;
+  gap:18px;
+  z-index:60;
+}
+
+.home-button,
+.sound-button{
+  position:relative !important;
+  top:auto !important;
+  left:auto !important;
+  right:auto !important;
+  transform:none !important;
+}
+
+.home-button{
+  width:30px;
+  height:30px;
+  border:none;
+  background:transparent;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  padding:0;
+}
+
+.home-button:hover{
+  transform:scale(1.1) !important;
+}
+
+.home-button:active{
+  transform:scale(.95) !important;
+}
+
+.home-icon{
+  width:24px;
+  height:24px;
+  fill:#f4c64b;
+  filter:drop-shadow(0 0 10px rgba(244,198,75,.75));
+}
