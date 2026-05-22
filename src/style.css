@@ -464,3 +464,73 @@ button{
   fill:#f4c64b;
   filter:drop-shadow(0 0 10px rgba(244,198,75,.75));
 }
+
+
+/* Correção do grupo Home + Som */
+.top-actions{
+  position:fixed;
+  top:24px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+  z-index:9999;
+}
+
+.home-button,
+.sound-button{
+  position:relative !important;
+  top:auto !important;
+  left:auto !important;
+  right:auto !important;
+  width:30px !important;
+  height:30px !important;
+  transform:none !important;
+  border:none !important;
+  border-radius:0 !important;
+  background:transparent !important;
+  box-shadow:none !important;
+  padding:0 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+}
+
+.home-button:hover,
+.sound-button:hover{
+  transform:scale(1.1) !important;
+}
+
+.home-button:active,
+.sound-button:active{
+  transform:scale(.95) !important;
+}
+
+.home-icon,
+.sound-icon{
+  width:24px !important;
+  height:24px !important;
+  fill:#f4c64b !important;
+  filter:drop-shadow(0 0 10px rgba(244,198,75,.75));
+}
+
+.sound-wave{
+  fill:none !important;
+  stroke:#f4c64b !important;
+  stroke-width:5 !important;
+  stroke-linecap:round !important;
+  stroke-linejoin:round !important;
+}
+
+.sound-button.muted::after{
+  content:"";
+  position:absolute;
+  width:35px;
+  height:2px;
+  border-radius:999px;
+  background:#f4c64b;
+  transform:rotate(-42deg);
+  box-shadow:0 0 10px rgba(244,198,75,.85);
+}
