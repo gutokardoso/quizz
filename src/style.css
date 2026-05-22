@@ -958,3 +958,9 @@ body{
     min-height:42px !important;
   }
 }
+
+
+.home-stage .background-image,
+.background-image{
+  height:100% !important;
+}
