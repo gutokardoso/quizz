@@ -556,3 +556,19 @@ button{
   transform:rotate(-42deg);
   box-shadow:0 0 10px rgba(244,198,75,.85);
 }
+
+
+.question-logo-wrap{
+  width:100%;
+  max-width:900px;
+  display:flex;
+  justify-content:flex-start;
+  margin-bottom:18px;
+}
+
+.question-logo{
+  width:140px;
+  height:auto;
+  object-fit:contain;
+  filter:drop-shadow(0 0 18px rgba(244,198,75,.35));
+}
