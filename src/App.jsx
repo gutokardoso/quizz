@@ -27,7 +27,15 @@ export default function App() {
 
   const audioCtx = useRef(null);
   const musicLoop = useRef(null);
+  const victoryAudioRef = useRef(null);
   const soundOnRef = useRef(true);
+
+  useEffect(() => {
+    victoryAudioRef.current = new Audio("/vitoria.mp3");
+    victoryAudioRef.current.preload = "auto";
+    victoryAudioRef.current.volume = 0.9;
+  }, []);
+
 
 
   function getCtx() {
@@ -113,6 +121,20 @@ export default function App() {
     }
   }
 
+  function stopVictoryAudio() {
+    if (victoryAudioRef.current) {
+      victoryAudioRef.current.pause();
+      victoryAudioRef.current.currentTime = 0;
+    }
+  }
+
+  function playVictoryAudio() {
+    if (!soundOnRef.current || !victoryAudioRef.current) return;
+
+    victoryAudioRef.current.currentTime = 0;
+    victoryAudioRef.current.play().catch(() => {});
+  }
+
   useEffect(() => {
     soundOnRef.current = soundOn;
 
@@ -160,6 +182,7 @@ export default function App() {
 
     if (!next) {
       stopMusic();
+      stopVictoryAudio();
       return;
     }
 
@@ -171,6 +194,7 @@ export default function App() {
   }
 
   async function startGame() {
+    stopVictoryAudio();
     const unlocked = await unlockAudio();
 
     if (unlocked && soundOn) {
@@ -204,9 +228,11 @@ export default function App() {
 
     if (current + 1 >= questions.length) {
       stopMusic();
-      playFinish();
       setScore(newScore);
       setScreen("result");
+      setTimeout(() => {
+        playVictoryAudio();
+      }, 250);
       return;
     }
 
@@ -219,6 +245,7 @@ export default function App() {
   function restart() {
     playClick();
     stopMusic();
+    stopVictoryAudio();
     setScreen("home");
     setCurrent(0);
     setScore(0);
