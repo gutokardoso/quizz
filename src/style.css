@@ -62,10 +62,10 @@ button{
   align-items:center;
   justify-content:center;
   padding:30px;
-  background:
-    radial-gradient(circle at top,rgba(0,166,255,.25),transparent 32%),
-    radial-gradient(circle at bottom,rgba(244,198,75,.18),transparent 34%),
-    #000926;
+  background-image:url('/question-background.jpg');
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
 }
 
 .card{
