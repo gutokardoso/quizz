@@ -5,9 +5,14 @@
 
 body{
   margin:0;
-  overflow:hidden;
   background:#000926;
-  font-family:Arial,sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
+  color:white;
+}
+
+button{
+  font-family:inherit;
+  cursor:pointer;
 }
 
 .home-stage{
@@ -16,8 +21,9 @@ body{
   height:100vh;
   overflow:hidden;
   display:flex;
-  align-items:center;
+  align-items:flex-end;
   justify-content:center;
+  padding-bottom:10vh;
 }
 
 .background-image{
@@ -30,24 +36,9 @@ body{
   z-index:0;
 }
 
-.overlay{
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,.08);
-  z-index:1;
-}
-
-.home-content{
+.start-button{
   position:relative;
   z-index:2;
-  width:100%;
-  display:flex;
-  align-items:flex-end;
-  justify-content:center;
-  padding-bottom:110px;
-}
-
-.start-button{
   border:none;
   padding:26px 80px;
   border-radius:18px;
@@ -55,12 +46,194 @@ body{
   color:#000926;
   font-size:34px;
   font-weight:900;
-  cursor:pointer;
   box-shadow:
     0 0 35px rgba(255,191,0,.7),
     inset 0 2px 0 rgba(255,255,255,.4);
+  transition:.2s;
 }
 
 .start-button:hover{
   transform:scale(1.03);
+}
+
+.game-stage{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:32px;
+  background:
+    radial-gradient(circle at top, rgba(0,166,255,.22), transparent 34%),
+    radial-gradient(circle at bottom, rgba(244,198,75,.18), transparent 32%),
+    #000926;
+}
+
+.quiz-card,
+.result-card{
+  width:100%;
+  max-width:900px;
+  background:linear-gradient(145deg,rgba(2,13,31,.96),rgba(0,9,38,.98));
+  border:2px solid #f4c64b;
+  border-radius:32px;
+  padding:36px;
+  box-shadow:0 0 42px rgba(244,198,75,.24);
+}
+
+.quiz-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  color:#f4c64b;
+  font-weight:900;
+  font-size:20px;
+}
+
+.quiz-header div:first-child{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+
+.timer{
+  width:82px;
+  height:82px;
+  border-radius:50%;
+  border:4px solid #f4c64b;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-size:32px;
+  line-height:1;
+}
+
+.timer small{
+  font-size:11px;
+  color:#f4c64b;
+}
+
+.progress{
+  margin:24px 0;
+  height:8px;
+  background:#2d2308;
+  border-radius:99px;
+  overflow:hidden;
+}
+
+.progress span{
+  display:block;
+  height:100%;
+  background:#f4c64b;
+  box-shadow:0 0 18px #f4c64b;
+}
+
+.quiz-card h1{
+  text-align:center;
+  font-size:40px;
+  margin:34px 0;
+}
+
+.answers{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+.answers button{
+  width:100%;
+  border:1px solid rgba(255,255,255,.35);
+  background:#071426;
+  color:white;
+  border-radius:18px;
+  padding:20px 24px;
+  font-size:22px;
+  font-weight:800;
+  display:flex;
+  align-items:center;
+  gap:18px;
+  text-align:left;
+  transition:.2s;
+}
+
+.answers button:hover{
+  border-color:#f4c64b;
+  transform:translateX(4px);
+}
+
+.answers button span{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  border:1px solid currentColor;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:900;
+}
+
+.answers button.correct{
+  background:#6fba39;
+  color:#000926;
+  border-color:#c9ff96;
+}
+
+.answers button.wrong{
+  background:#e53935;
+  color:white;
+  border-color:#ff928c;
+}
+
+.result-card{
+  text-align:center;
+}
+
+.result-card h2{
+  color:#f4c64b;
+  letter-spacing:2px;
+}
+
+.result-card h1{
+  font-size:60px;
+  margin:20px 0;
+}
+
+.result-card h1 strong{
+  color:#f4c64b;
+}
+
+.result-card p{
+  color:#6fba39;
+  font-size:26px;
+  font-weight:900;
+  text-transform:uppercase;
+}
+
+.result-card button{
+  margin-top:24px;
+  border:none;
+  border-radius:16px;
+  padding:20px 42px;
+  background:#f4c64b;
+  color:#000926;
+  font-size:22px;
+  font-weight:900;
+}
+
+@media(max-width:700px){
+  .start-button{
+    font-size:22px;
+    padding:20px 36px;
+  }
+
+  .quiz-card h1,
+  .result-card h1{
+    font-size:32px;
+  }
+
+  .quiz-card,
+  .result-card{
+    padding:24px;
+  }
 }
