@@ -79,6 +79,7 @@ export default function App() {
     if (!soundOn && !force) return;
 
     const ctx = getCtx();
+
     if (ctx.state === "suspended") {
       ctx.resume();
     }
@@ -119,6 +120,12 @@ export default function App() {
       clearInterval(musicLoop.current);
       musicLoop.current = null;
     }
+
+    try {
+      if (audioCtx.current) {
+        audioCtx.current.suspend();
+      }
+    } catch (e) {}
   }
 
   function stopVictoryAudio() {
@@ -228,11 +235,14 @@ export default function App() {
 
     if (current + 1 >= questions.length) {
       stopMusic();
+
       setScore(newScore);
       setScreen("result");
+
       setTimeout(() => {
+        stopMusic();
         playVictoryAudio();
-      }, 250);
+      }, 150);
       return;
     }
 
