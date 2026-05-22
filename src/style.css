@@ -705,3 +705,256 @@ button{
 .ranking-button{
   min-height:60px;
 }
+
+
+/* Ajustes mobile finais: sem scroll, sem cortes e sem vazamento */
+html,
+body,
+#root{
+  width:100%;
+  height:100%;
+  overflow:hidden !important;
+}
+
+body{
+  overscroll-behavior:none;
+}
+
+@media (max-width: 768px){
+  .home-stage{
+    height:100svh !important;
+    min-height:100svh !important;
+    padding-bottom:7vh !important;
+    overflow:hidden !important;
+  }
+
+  .home-stage .background-image,
+  .background-image{
+    width:100% !important;
+    height:100% !important;
+    object-fit:contain !important;
+    object-position:center top !important;
+    background:#000926 !important;
+  }
+
+  .start-button{
+    width:260px !important;
+    height:58px !important;
+    font-size:18px !important;
+    border-radius:13px !important;
+    padding:0 !important;
+  }
+
+  .top-actions{
+    top:14px !important;
+    gap:14px !important;
+  }
+
+  .top-actions .home-button,
+  .top-actions .sound-button,
+  .home-button,
+  .sound-button{
+    width:26px !important;
+    height:26px !important;
+    min-width:26px !important;
+    min-height:26px !important;
+  }
+
+  .top-actions .home-icon,
+  .top-actions .sound-icon,
+  .home-icon,
+  .sound-icon{
+    width:21px !important;
+    height:21px !important;
+  }
+
+  .sound-button.muted::after,
+  .top-actions .sound-button.muted::after{
+    width:30px !important;
+    height:2px !important;
+  }
+
+  .game-stage,
+  .result-stage{
+    height:100svh !important;
+    min-height:100svh !important;
+    padding:14px !important;
+    overflow:hidden !important;
+    justify-content:center !important;
+  }
+
+  .quiz-layout-wrap,
+  .quiz-topbar{
+    max-width:100% !important;
+    width:100% !important;
+  }
+
+  .quiz-topbar{
+    margin-bottom:8px !important;
+    padding:0 2px !important;
+  }
+
+  .quiz-top-logo{
+    width:92px !important;
+  }
+
+  .quiz-top-actions{
+    gap:14px !important;
+  }
+
+  .card{
+    width:100% !important;
+    max-width:100% !important;
+    max-height:calc(100svh - 74px) !important;
+    padding:12px !important;
+    border-radius:18px !important;
+    overflow:hidden !important;
+  }
+
+  .topbar{
+    font-size:14px !important;
+    align-items:center !important;
+  }
+
+  .timer-circle{
+    width:54px !important;
+    height:54px !important;
+    padding:4px !important;
+  }
+
+  .timer-inner strong{
+    font-size:18px !important;
+  }
+
+  .timer-inner small{
+    font-size:8px !important;
+    margin-top:2px !important;
+  }
+
+  .progress{
+    height:6px !important;
+    margin:8px 0 !important;
+  }
+
+  .card h1{
+    font-size:22px !important;
+    line-height:1.12 !important;
+    margin:10px 0 12px !important;
+  }
+
+  .answers{
+    gap:8px !important;
+  }
+
+  .answers button{
+    min-height:54px !important;
+    padding:8px 10px !important;
+    border-radius:12px !important;
+    font-size:15px !important;
+    line-height:1.12 !important;
+    gap:10px !important;
+  }
+
+  .answers button span{
+    width:32px !important;
+    height:32px !important;
+    min-width:32px !important;
+    font-size:14px !important;
+  }
+
+  .result-stage .quiz-topbar{
+    max-width:100% !important;
+    margin-bottom:8px !important;
+  }
+
+  .result-card{
+    width:100% !important;
+    max-width:100% !important;
+    max-height:calc(100svh - 74px) !important;
+    min-height:0 !important;
+    grid-template-columns:1fr !important;
+    gap:6px !important;
+    padding:14px !important;
+    border-radius:20px !important;
+    overflow:hidden !important;
+  }
+
+  .trophy{
+    font-size:72px !important;
+  }
+
+  .stars{
+    font-size:18px !important;
+    margin-top:2px !important;
+    letter-spacing:4px !important;
+  }
+
+  .result-content h2{
+    font-size:15px !important;
+    margin:0 0 6px !important;
+  }
+
+  .result-content h1{
+    font-size:30px !important;
+    line-height:1.05 !important;
+    margin:0 0 8px !important;
+  }
+
+  .result-content p{
+    font-size:14px !important;
+    padding:8px 16px !important;
+    margin:0 0 10px !important;
+    border-radius:10px !important;
+  }
+
+  .restart-button{
+    max-width:280px !important;
+    min-height:48px !important;
+    padding:12px 18px !important;
+    font-size:15px !important;
+    margin:8px auto 0 !important;
+    border-radius:12px !important;
+  }
+
+  .ranking-button{
+    display:none !important;
+  }
+}
+
+@media (max-height: 640px){
+  .card h1{
+    font-size:20px !important;
+    margin:8px 0 !important;
+  }
+
+  .answers button{
+    min-height:48px !important;
+    padding:7px 10px !important;
+    font-size:14px !important;
+  }
+
+  .timer-circle{
+    width:48px !important;
+    height:48px !important;
+  }
+
+  .quiz-top-logo{
+    width:82px !important;
+  }
+
+  .result-card{
+    padding:10px !important;
+  }
+
+  .trophy{
+    font-size:58px !important;
+  }
+
+  .result-content h1{
+    font-size:26px !important;
+  }
+
+  .restart-button{
+    min-height:42px !important;
+  }
+}

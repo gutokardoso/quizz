@@ -352,10 +352,6 @@ export default function App() {
             <button className="restart-button" onClick={restart}>
               ↻ JOGAR NOVAMENTE
             </button>
-
-            <button className="ranking-button">
-              ▮▮▮ VER RANKING
-            </button>
           </div>
         </section>
       </main>
