@@ -964,3 +964,28 @@ body{
 .background-image{
   height:100% !important;
 }
+
+
+/* Correção definitiva da imagem da página inicial */
+.home-stage{
+  width:100% !important;
+  height:100vh !important;
+  min-height:100vh !important;
+}
+
+.home-stage .background-image{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  min-height:100% !important;
+  object-fit:cover !important;
+  object-position:center top !important;
+}
+
+@supports (height: 100svh){
+  .home-stage{
+    height:100svh !important;
+    min-height:100svh !important;
+  }
+}
