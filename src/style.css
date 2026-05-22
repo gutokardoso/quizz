@@ -43,7 +43,7 @@ button{
   border-radius:18px;
   background:linear-gradient(180deg,#ffd85e 0%,#ffb400 45%,#e78800 100%);
   color:#000926;
-  font-size:28px;
+  font-size:18px;
   font-weight:900;
   box-shadow:
     0 0 35px rgba(255,191,0,.7),
@@ -158,15 +158,15 @@ button{
 .result-card{
   width:100%;
   max-width:1050px;
-  min-height:480px;
+  min-height:420px;
   display:grid;
   grid-template-columns:.9fr 1.1fr;
   align-items:center;
-  gap:30px;
+  gap:18px;
   background:linear-gradient(145deg,rgba(2,13,31,.96),rgba(0,9,38,.98));
   border:2px solid #f4c64b;
   border-radius:34px;
-  padding:50px;
+  padding:28px;
   box-shadow:
     0 0 42px rgba(244,198,75,.26),
     inset 0 0 40px rgba(244,198,75,.05);
@@ -202,7 +202,7 @@ button{
 
 .trophy{
   position:relative;
-  font-size:190px;
+  font-size:140px;
   filter:drop-shadow(0 0 30px rgba(244,198,75,.65));
 }
 
@@ -215,14 +215,14 @@ button{
 
 .result-content h2{
   color:#f4c64b;
-  font-size:28px;
+  font-size:18px;
   font-weight:900;
   letter-spacing:2px;
   margin:0 0 18px;
 }
 
 .result-content h1{
-  font-size:68px;
+  font-size:54px;
   line-height:1;
   margin:0 0 22px;
   font-weight:900;
@@ -240,7 +240,7 @@ button{
   padding:12px 28px;
   font-size:26px;
   font-weight:900;
-  margin:0 0 30px;
+  margin:0 0 18px;
 }
 
 .restart-button,
@@ -248,9 +248,9 @@ button{
   width:100%;
   max-width:430px;
   display:block;
-  margin:14px auto;
+  margin:10px auto;
   border-radius:16px;
-  padding:20px 32px;
+  padding:16px 24px;
   font-size:20px;
   font-weight:900;
 }
@@ -683,4 +683,25 @@ button{
 .result-layout-wrap{
   width:100% !important;
   max-width:1050px !important;
+}
+
+
+.result-card{
+  max-height:78vh !important;
+  overflow:hidden !important;
+}
+
+.result-content h1{
+  line-height:1.05 !important;
+}
+
+.result-content{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.restart-button,
+.ranking-button{
+  min-height:60px;
 }
