@@ -341,11 +341,7 @@ export default function App() {
   return (
     <main className="game-stage">
       <TopActions soundOn={soundOn} toggleSound={toggleSound} goHome={goHome} />
-      <div className="question-logo-wrap">
-        <img src="/quiz-logo.png" className="question-logo" alt="Quiz Challenge" />
-      </div>
-
-      <section className="card">
+<section className="card">
         <div className="topbar">
           <span>Pergunta {current + 1} de 10</span>
           <div
