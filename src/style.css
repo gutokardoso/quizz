@@ -69,12 +69,15 @@ button{
 }
 
 .card{
+  max-height:78vh;
+  overflow:hidden;
+
   width:100%;
   max-width:900px;
   background:linear-gradient(145deg,rgba(2,13,31,.96),rgba(0,9,38,.98));
   border:2px solid #f4c64b;
   border-radius:28px;
-  padding:24px;
+  padding:18px;
   box-shadow:0 0 42px rgba(244,198,75,.24);
 }
 
@@ -82,7 +85,7 @@ button{
   display:flex;
   justify-content:space-between;
   color:#f4c64b;
-  font-size:22px;
+  font-size:20px;
   font-weight:900;
 }
 
@@ -97,7 +100,7 @@ button{
   height:8px;
   background:#2d2308;
   border-radius:99px;
-  margin:24px 0;
+  margin:16px 0;
   overflow:hidden;
 }
 
@@ -110,8 +113,8 @@ button{
 
 .card h1{
   text-align:center;
-  font-size:36px;
-  margin:34px 0;
+  font-size:32px;
+  margin:20px 0;
 }
 
 .answers{
@@ -128,8 +131,8 @@ button{
   border-radius:18px;
   display:flex;
   align-items:center;
-  gap:14px;
-  font-size:22px;
+  gap:10px;
+  font-size:20px;
   font-weight:800;
 }
 
@@ -248,7 +251,7 @@ button{
   margin:14px auto;
   border-radius:16px;
   padding:20px 32px;
-  font-size:22px;
+  font-size:20px;
   font-weight:900;
 }
 
@@ -282,7 +285,7 @@ button{
   .start-button{
     width:300px;
     height:72px;
-    font-size:22px;
+    font-size:20px;
   }
 }
 
@@ -427,7 +430,7 @@ button{
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:14px;
+  gap:10px;
   z-index:9999;
 }
 
@@ -643,4 +646,22 @@ button{
   background:#f4c64b;
   transform:rotate(-42deg);
   box-shadow:0 0 10px rgba(244,198,75,.85);
+}
+
+
+.timer-circle{
+  width:74px !important;
+  height:74px !important;
+}
+
+.timer-inner strong{
+  font-size:24px !important;
+}
+
+.answers button{
+  min-height:80px;
+}
+
+.card h1{
+  line-height:1.15;
 }
