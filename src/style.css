@@ -332,10 +332,11 @@ button{
 .sound-button{
   position:fixed;
   top:24px;
-  right:24px;
+  left:50%;
+  transform:translateX(-50%);
   z-index:50;
-  width:40px;
-  height:40px;
+  width:30px;
+  height:30px;
   border-radius:50%;
   border:2px solid #fff1a0;
   background:linear-gradient(180deg,#ffe27a 0%,#ffb400 48%,#d47a00 100%);
@@ -356,7 +357,7 @@ button{
 }
 
 .sound-button:active{
-  transform:scale(.96);
+  transform:translateX(-50%) scale(.96);
 }
 
 
@@ -364,10 +365,11 @@ button{
 .sound-button{
   position:fixed;
   top:24px;
-  right:24px;
+  left:50%;
+  transform:translateX(-50%);
   z-index:50;
-  width:40px;
-  height:40px;
+  width:30px;
+  height:30px;
   border:none !important;
   border-radius:0 !important;
   background:transparent !important;
@@ -382,16 +384,16 @@ button{
 }
 
 .sound-button:hover{
-  transform:scale(1.1);
+  transform:translateX(-50%) scale(1.1);
 }
 
 .sound-button:active{
-  transform:scale(.96);
+  transform:translateX(-50%) scale(.96);
 }
 
 .sound-icon{
-  width:34px;
-  height:34px;
+  width:24px;
+  height:24px;
   fill:#f4c64b;
   filter:drop-shadow(0 0 10px rgba(244,198,75,.75));
 }
