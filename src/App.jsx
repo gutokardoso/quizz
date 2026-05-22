@@ -20,7 +20,7 @@ export default function App() {
   const [current, setCurrent] = useState(0);
   const [score, setScore] = useState(0);
   const [selected, setSelected] = useState(null);
-  const [time, setTime] = useState(20);
+  const [time, setTime] = useState(10);
 
   const audioCtx = useRef(null);
   const musicLoop = useRef(null);
@@ -99,7 +99,7 @@ export default function App() {
     setCurrent(0);
     setScore(0);
     setSelected(null);
-    setTime(20);
+    setTime(10);
   }
 
   function choose(index) {
@@ -130,7 +130,7 @@ export default function App() {
     setScore(newScore);
     setCurrent((v) => v + 1);
     setSelected(null);
-    setTime(20);
+    setTime(10);
   }
 
   function restart() {
@@ -140,7 +140,7 @@ export default function App() {
     setCurrent(0);
     setScore(0);
     setSelected(null);
-    setTime(20);
+    setTime(10);
   }
 
   if (screen === "home") {
