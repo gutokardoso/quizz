@@ -27,6 +27,32 @@ export default function App() {
   const audioCtx = useRef(null);
   const musicLoop = useRef(null);
 
+  useEffect(() => {
+    if (!soundOn) return;
+
+    const unlockAudio = async () => {
+      try {
+        const ctx = getCtx();
+
+        if (ctx.state === "suspended") {
+          await ctx.resume();
+        }
+
+        startMusic(true);
+      } catch (e) {}
+    };
+
+    unlockAudio();
+
+    window.addEventListener("click", unlockAudio, { once: true });
+    window.addEventListener("touchstart", unlockAudio, { once: true });
+
+    return () => {
+      window.removeEventListener("click", unlockAudio);
+      window.removeEventListener("touchstart", unlockAudio);
+    };
+  }, []);
+
   function getCtx() {
     if (!audioCtx.current) audioCtx.current = new (window.AudioContext || window.webkitAudioContext)();
     return audioCtx.current;
