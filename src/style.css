@@ -665,3 +665,22 @@ button{
 .card h1{
   line-height:1.15;
 }
+
+
+/* Barra superior também na tela final de resultado */
+.result-stage{
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:center !important;
+}
+
+.result-stage .quiz-topbar{
+  width:100% !important;
+  max-width:1050px !important;
+  margin-bottom:16px !important;
+}
+
+.result-layout-wrap{
+  width:100% !important;
+  max-width:1050px !important;
+}

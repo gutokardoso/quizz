@@ -335,8 +335,9 @@ export default function App() {
   if (screen === "result") {
     return (
       <main className="result-stage">
-        <TopActions soundOn={soundOn} toggleSound={toggleSound} goHome={goHome} />
-        <section className="result-card">
+        <QuizTopBar soundOn={soundOn} toggleSound={toggleSound} goHome={goHome} />
+
+        <section className="result-card result-layout-wrap">
           <div className="trophy-area">
             <div className="trophy-glow"></div>
             <div className="trophy">🏆</div>
