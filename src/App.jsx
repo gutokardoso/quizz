@@ -193,7 +193,7 @@ export default function App() {
           <div
             className="timer-circle"
             style={{
-              background: `conic-gradient(#f4c64b ${timerProgress}%, rgba(244,198,75,.16) ${timerProgress}% 100%)`
+              background: `conic-gradient(from -90deg, #f4c64b 0% ${(100 - timerProgress)}%, rgba(244,198,75,.16) ${(100 - timerProgress)}% 100%)`
             }}
           >
             <div className="timer-inner">
