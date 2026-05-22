@@ -64,13 +64,31 @@ export default function App() {
   function startMusic() {
     if (musicLoop.current) return;
 
-    const notes = [110, 165, 220, 185, 247, 220, 165, 110];
+    const melody = [
+      { note: 523, type: "triangle", vol: 0.018 },
+      { note: 659, type: "triangle", vol: 0.018 },
+      { note: 784, type: "triangle", vol: 0.018 },
+      { note: 659, type: "triangle", vol: 0.018 },
+      { note: 698, type: "triangle", vol: 0.018 },
+      { note: 880, type: "triangle", vol: 0.018 },
+      { note: 784, type: "triangle", vol: 0.018 },
+      { note: 659, type: "triangle", vol: 0.018 }
+    ];
+
     let step = 0;
 
     musicLoop.current = setInterval(() => {
-      tone(notes[step % notes.length], 0.4, "triangle", 0.018);
+      const current = melody[step % melody.length];
+
+      tone(current.note, 0.22, current.type, current.vol);
+
+      // baixo arcade leve
+      if (step % 2 === 0) {
+        tone(current.note / 2, 0.28, "square", 0.008);
+      }
+
       step++;
-    }, 420);
+    }, 240);
   }
 
   function stopMusic() {
