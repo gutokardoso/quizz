@@ -21,6 +21,7 @@ export default function App() {
   const [score, setScore] = useState(0);
   const [selected, setSelected] = useState(null);
   const [time, setTime] = useState(10);
+  const timerProgress = Math.max(0, Math.min(100, (time / 10) * 100));
 
   const audioCtx = useRef(null);
   const musicLoop = useRef(null);
@@ -189,7 +190,17 @@ export default function App() {
       <section className="card">
         <div className="topbar">
           <span>Pergunta {current + 1} de 10</span>
-          <div className="timer">{time}s</div>
+          <div
+            className="timer-circle"
+            style={{
+              background: `conic-gradient(#f4c64b ${timerProgress}%, rgba(244,198,75,.16) ${timerProgress}% 100%)`
+            }}
+          >
+            <div className="timer-inner">
+              <strong>{time}</strong>
+              <small>SEG</small>
+            </div>
+          </div>
         </div>
 
         <div className="progress">
