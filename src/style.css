@@ -358,3 +358,59 @@ button{
 .sound-button:active{
   transform:scale(.96);
 }
+
+
+/* Novo layout do botão de som: apenas ícone dourado, sem círculo */
+.sound-button{
+  position:fixed;
+  top:24px;
+  right:24px;
+  z-index:50;
+  width:54px;
+  height:54px;
+  border:none !important;
+  border-radius:0 !important;
+  background:transparent !important;
+  box-shadow:none !important;
+  color:#f4c64b;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.sound-button:hover{
+  transform:scale(1.1);
+}
+
+.sound-button:active{
+  transform:scale(.96);
+}
+
+.sound-icon{
+  width:44px;
+  height:44px;
+  fill:#f4c64b;
+  filter:drop-shadow(0 0 10px rgba(244,198,75,.75));
+}
+
+.sound-wave{
+  fill:none;
+  stroke:#f4c64b;
+  stroke-width:5;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+.sound-button.muted::after{
+  content:"";
+  position:absolute;
+  width:52px;
+  height:5px;
+  border-radius:999px;
+  background:#f4c64b;
+  transform:rotate(-42deg);
+  box-shadow:0 0 10px rgba(244,198,75,.85);
+}

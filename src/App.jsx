@@ -197,8 +197,12 @@ export default function App() {
     return (
       <main className="home-stage">
         <img src="/start-screen-layout.png" className="background-image" alt="" />
-        <button className="sound-button" onClick={toggleSound} aria-label={soundOn ? "Desligar som" : "Ligar som"}>
-          {soundOn ? "🔊" : "🔇"}
+        <button className={`sound-button ${soundOn ? "" : "muted"}`} onClick={toggleSound} aria-label={soundOn ? "Desligar som" : "Ligar som"}>
+          <svg className="sound-icon" viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M8 25v14h12l16 14V11L20 25H8z" />
+            <path className="sound-wave wave-one" d="M43 23c3 3 3 15 0 18" />
+            <path className="sound-wave wave-two" d="M50 16c8 8 8 32 0 40" />
+          </svg>
         </button>
         <button className="start-button" onClick={startGame}>
           COMEÇAR DESAFIO
@@ -210,8 +214,12 @@ export default function App() {
   if (screen === "result") {
     return (
       <main className="result-stage">
-        <button className="sound-button" onClick={toggleSound} aria-label={soundOn ? "Desligar som" : "Ligar som"}>
-          {soundOn ? "🔊" : "🔇"}
+        <button className={`sound-button ${soundOn ? "" : "muted"}`} onClick={toggleSound} aria-label={soundOn ? "Desligar som" : "Ligar som"}>
+          <svg className="sound-icon" viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M8 25v14h12l16 14V11L20 25H8z" />
+            <path className="sound-wave wave-one" d="M43 23c3 3 3 15 0 18" />
+            <path className="sound-wave wave-two" d="M50 16c8 8 8 32 0 40" />
+          </svg>
         </button>
         <section className="result-card">
           <div className="trophy-area">
@@ -242,8 +250,12 @@ export default function App() {
 
   return (
     <main className="game-stage">
-      <button className="sound-button" onClick={toggleSound} aria-label={soundOn ? "Desligar som" : "Ligar som"}>
-        {soundOn ? "🔊" : "🔇"}
+      <button className={`sound-button ${soundOn ? "" : "muted"}`} onClick={toggleSound} aria-label={soundOn ? "Desligar som" : "Ligar som"}>
+        <svg className="sound-icon" viewBox="0 0 64 64" aria-hidden="true">
+          <path d="M8 25v14h12l16 14V11L20 25H8z" />
+          <path className="sound-wave wave-one" d="M43 23c3 3 3 15 0 18" />
+          <path className="sound-wave wave-two" d="M50 16c8 8 8 32 0 40" />
+        </svg>
       </button>
       <section className="card">
         <div className="topbar">
