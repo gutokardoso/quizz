@@ -334,8 +334,8 @@ button{
   top:24px;
   right:24px;
   z-index:50;
-  width:54px;
-  height:54px;
+  width:40px;
+  height:40px;
   border-radius:50%;
   border:2px solid #fff1a0;
   background:linear-gradient(180deg,#ffe27a 0%,#ffb400 48%,#d47a00 100%);
@@ -366,8 +366,8 @@ button{
   top:24px;
   right:24px;
   z-index:50;
-  width:54px;
-  height:54px;
+  width:40px;
+  height:40px;
   border:none !important;
   border-radius:0 !important;
   background:transparent !important;
@@ -390,8 +390,8 @@ button{
 }
 
 .sound-icon{
-  width:44px;
-  height:44px;
+  width:34px;
+  height:34px;
   fill:#f4c64b;
   filter:drop-shadow(0 0 10px rgba(244,198,75,.75));
 }
