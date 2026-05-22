@@ -32,8 +32,8 @@ export default function App() {
     return audioCtx.current;
   }
 
-  function tone(freq, duration = 0.15, type = "sine", volume = 0.03) {
-    if (!soundOn) return;
+  function tone(freq, duration = 0.15, type = "sine", volume = 0.03, force = false) {
+    if (!force && !soundOn) return;
     const ctx = getCtx();
     const osc = ctx.createOscillator();
     const gain = ctx.createGain();
@@ -63,8 +63,14 @@ export default function App() {
     });
   }
 
-  function startMusic() {
+  function startMusic(force = false) {
     if (musicLoop.current) return;
+    if (!force && !soundOn) return;
+
+    const ctx = getCtx();
+    if (ctx.state === "suspended") {
+      ctx.resume();
+    }
 
     const melody = [
       { note: 523, type: "triangle", vol: 0.018 },
@@ -82,11 +88,10 @@ export default function App() {
     musicLoop.current = setInterval(() => {
       const current = melody[step % melody.length];
 
-      tone(current.note, 0.22, current.type, current.vol);
+      tone(current.note, 0.22, current.type, current.vol, force);
 
-      // baixo arcade leve
       if (step % 2 === 0) {
-        tone(current.note / 2, 0.28, "square", 0.008);
+        tone(current.note / 2, 0.28, "square", 0.008, force);
       }
 
       step++;
@@ -101,8 +106,12 @@ export default function App() {
   }
 
   useEffect(() => {
-    if (!soundOn) stopMusic();
-  }, [soundOn]);
+    if (!soundOn) {
+      stopMusic();
+    } else if (screen === "quiz") {
+      startMusic(true);
+    }
+  }, [soundOn, screen]);
 
   useEffect(() => {
     if (screen !== "quiz" || selected !== null) return;
@@ -123,8 +132,13 @@ export default function App() {
 
     if (!next) {
       stopMusic();
-    } else if (screen === "quiz") {
-      setTimeout(() => startMusic(), 50);
+      return;
+    }
+
+    if (screen === "quiz") {
+      setTimeout(() => {
+        startMusic(true);
+      }, 80);
     }
   }
 
