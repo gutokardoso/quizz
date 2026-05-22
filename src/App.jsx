@@ -18,7 +18,14 @@ const questions = [
 
 function TopActions({ soundOn, toggleSound, goHome }) {
   return (
-);
+    <div className="top-actions">
+      <button className="home-button" onClick={goHome} aria-label="Voltar ao início">
+        <svg className="home-icon" viewBox="0 0 64 64" aria-hidden="true">
+          <path d="M10 30L32 12l22 18v22a2 2 0 0 1-2 2H40V38H24v16H12a2 2 0 0 1-2-2V30z" />
+        </svg>
+      </button>
+    </div>
+  );
 }
 
 export default function App() {
@@ -285,7 +292,7 @@ export default function App() {
       <main className="home-stage">
         <TopActions soundOn={soundOn} toggleSound={toggleSound} goHome={goHome} />
         <img src="/start-screen-layout.png" className="background-image" alt="" />
-<button className="start-button" onClick={startGame}>
+        <button className="start-button" onClick={startGame}>
           COMEÇAR DESAFIO
         </button>
       </main>
@@ -295,7 +302,8 @@ export default function App() {
   if (screen === "result") {
     return (
       <main className="result-stage">
-<section className="result-card">
+        <TopActions soundOn={soundOn} toggleSound={toggleSound} goHome={goHome} />
+        <section className="result-card">
           <div className="trophy-area">
             <div className="trophy-glow"></div>
             <div className="trophy">🏆</div>
@@ -324,13 +332,7 @@ export default function App() {
 
   return (
     <main className="game-stage">
-      <button className={`sound-button ${soundOn ? "" : "muted"}`} onClick={toggleSound} aria-label={soundOn ? "Desligar som" : "Ligar som"}>
-        <svg className="sound-icon" viewBox="0 0 64 64" aria-hidden="true">
-          <path d="M8 25v14h12l16 14V11L20 25H8z" />
-          <path className="sound-wave wave-one" d="M43 23c3 3 3 15 0 18" />
-          <path className="sound-wave wave-two" d="M50 16c8 8 8 32 0 40" />
-        </svg>
-      </button>
+      <TopActions soundOn={soundOn} toggleSound={toggleSound} goHome={goHome} />
       <section className="card">
         <div className="topbar">
           <span>Pergunta {current + 1} de 10</span>
