@@ -18,6 +18,7 @@ const questions = [
 export default function App() {
   const [screen, setScreen] = useState("home");
   const [soundOn, setSoundOn] = useState(true);
+  const [audioUnlocked, setAudioUnlocked] = useState(false);
   const [current, setCurrent] = useState(0);
   const [score, setScore] = useState(0);
   const [selected, setSelected] = useState(null);
@@ -26,32 +27,8 @@ export default function App() {
 
   const audioCtx = useRef(null);
   const musicLoop = useRef(null);
+  const soundOnRef = useRef(true);
 
-  useEffect(() => {
-    if (!soundOn) return;
-
-    const unlockAudio = async () => {
-      try {
-        const ctx = getCtx();
-
-        if (ctx.state === "suspended") {
-          await ctx.resume();
-        }
-
-        startMusic(true);
-      } catch (e) {}
-    };
-
-    unlockAudio();
-
-    window.addEventListener("click", unlockAudio, { once: true });
-    window.addEventListener("touchstart", unlockAudio, { once: true });
-
-    return () => {
-      window.removeEventListener("click", unlockAudio);
-      window.removeEventListener("touchstart", unlockAudio);
-    };
-  }, []);
 
   function getCtx() {
     if (!audioCtx.current) audioCtx.current = new (window.AudioContext || window.webkitAudioContext)();
@@ -59,7 +36,7 @@ export default function App() {
   }
 
   function tone(freq, duration = 0.15, type = "sine", volume = 0.03, force = false) {
-    if (!force && !soundOn) return;
+    if (!force && !soundOnRef.current) return;
     const ctx = getCtx();
     const osc = ctx.createOscillator();
     const gain = ctx.createGain();
@@ -91,7 +68,7 @@ export default function App() {
 
   function startMusic(force = false) {
     if (musicLoop.current) return;
-    if (!force && !soundOn) return;
+    if (!soundOn && !force) return;
 
     const ctx = getCtx();
     if (ctx.state === "suspended") {
@@ -112,12 +89,17 @@ export default function App() {
     let step = 0;
 
     musicLoop.current = setInterval(() => {
+      if (!soundOnRef.current) {
+        stopMusic();
+        return;
+      }
+
       const current = melody[step % melody.length];
 
-      tone(current.note, 0.22, current.type, current.vol, force);
+      tone(current.note, 0.22, current.type, current.vol, true);
 
       if (step % 2 === 0) {
-        tone(current.note / 2, 0.28, "square", 0.008, force);
+        tone(current.note / 2, 0.28, "square", 0.008, true);
       }
 
       step++;
@@ -132,12 +114,17 @@ export default function App() {
   }
 
   useEffect(() => {
+    soundOnRef.current = soundOn;
+
     if (!soundOn) {
       stopMusic();
-    } else {
+      return;
+    }
+
+    if (audioUnlocked) {
       startMusic(true);
     }
-  }, [soundOn, screen]);
+  }, [soundOn, screen, audioUnlocked]);
 
   useEffect(() => {
     if (screen !== "quiz" || selected !== null) return;
@@ -152,7 +139,22 @@ export default function App() {
     return () => clearTimeout(timer);
   }, [time, screen, selected]);
 
-  function toggleSound() {
+  async function unlockAudio() {
+    try {
+      const ctx = getCtx();
+
+      if (ctx.state === "suspended") {
+        await ctx.resume();
+      }
+
+      setAudioUnlocked(true);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  async function toggleSound() {
     const next = !soundOn;
     setSoundOn(next);
 
@@ -161,15 +163,21 @@ export default function App() {
       return;
     }
 
-    if (screen === "quiz") {
-      setTimeout(() => {
-        startMusic(true);
-      }, 80);
+    const unlocked = await unlockAudio();
+
+    if (unlocked) {
+      startMusic(true);
     }
   }
 
-  function startGame() {
-    playClick();
+  async function startGame() {
+    const unlocked = await unlockAudio();
+
+    if (unlocked && soundOn) {
+      playClick();
+      startMusic(true);
+    }
+
     setScreen("quiz");
     setCurrent(0);
     setScore(0);
