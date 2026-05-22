@@ -989,3 +989,65 @@ body{
     min-height:100svh !important;
   }
 }
+
+
+/* Mobile: caixas de perguntas e resultado ocupando melhor a altura da tela */
+@media (max-width: 768px){
+  .game-stage,
+  .result-stage{
+    justify-content:flex-start !important;
+    padding-top:14px !important;
+    padding-bottom:14px !important;
+  }
+
+  .card{
+    height:calc(100svh - 86px) !important;
+    max-height:calc(100svh - 86px) !important;
+    display:flex !important;
+    flex-direction:column !important;
+    justify-content:center !important;
+  }
+
+  .answers{
+    flex:1 !important;
+    display:flex !important;
+    flex-direction:column !important;
+    justify-content:center !important;
+  }
+
+  .answers button{
+    flex:1 !important;
+    max-height:68px !important;
+  }
+
+  .result-card{
+    height:calc(100svh - 86px) !important;
+    max-height:calc(100svh - 86px) !important;
+    display:flex !important;
+    flex-direction:column !important;
+    justify-content:center !important;
+  }
+
+  .result-content{
+    justify-content:center !important;
+  }
+}
+
+@media (max-width: 768px) and (min-height: 700px){
+  .answers button{
+    max-height:76px !important;
+  }
+
+  .card h1{
+    font-size:24px !important;
+    margin:16px 0 18px !important;
+  }
+
+  .result-content h1{
+    font-size:34px !important;
+  }
+
+  .trophy{
+    font-size:88px !important;
+  }
+}
