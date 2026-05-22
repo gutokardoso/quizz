@@ -24,6 +24,14 @@ function TopActions({ soundOn, toggleSound, goHome }) {
           <path d="M10 30L32 12l22 18v22a2 2 0 0 1-2 2H40V38H24v16H12a2 2 0 0 1-2-2V30z" />
         </svg>
       </button>
+
+      <button className={`sound-button ${soundOn ? "" : "muted"}`} onClick={toggleSound} aria-label={soundOn ? "Desligar som" : "Ligar som"}>
+        <svg className="sound-icon" viewBox="0 0 64 64" aria-hidden="true">
+          <path d="M8 25v14h12l16 14V11L20 25H8z" />
+          <path className="sound-wave wave-one" d="M43 23c3 3 3 15 0 18" />
+          <path className="sound-wave wave-two" d="M50 16c8 8 8 32 0 40" />
+        </svg>
+      </button>
     </div>
   );
 }
