@@ -74,7 +74,7 @@ button{
   background:linear-gradient(145deg,rgba(2,13,31,.96),rgba(0,9,38,.98));
   border:2px solid #f4c64b;
   border-radius:28px;
-  padding:32px;
+  padding:24px;
   box-shadow:0 0 42px rgba(244,198,75,.24);
 }
 
@@ -110,7 +110,7 @@ button{
 
 .card h1{
   text-align:center;
-  font-size:40px;
+  font-size:36px;
   margin:34px 0;
 }
 
@@ -128,7 +128,7 @@ button{
   border-radius:18px;
   display:flex;
   align-items:center;
-  gap:18px;
+  gap:14px;
   font-size:22px;
   font-weight:800;
 }
@@ -427,7 +427,7 @@ button{
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:18px;
+  gap:14px;
   z-index:9999;
 }
 
