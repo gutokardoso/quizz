@@ -1,15 +1,16 @@
 # Quiz Challenge Premium
 
-Game de quiz premium para eventos, pronto para GitHub e Vercel.
+Versão com:
 
-## Novidades desta versão
-
+- 10 perguntas
+- 3 alternativas por pergunta
 - Cronômetro real de 20 segundos por pergunta
-- Barra visual de tempo
-- Trilha premium em loop gerada via Web Audio API
-- Efeitos sonoros de clique, acerto, erro, tempo esgotado e resultado final
-- Botão de ativar/desativar som
-- 10 perguntas, 3 alternativas e pontuação final
+- Avanço automático quando o tempo acaba
+- Pontuação final
+- Efeitos sonoros de clique, acerto, erro, tempo acabando e final
+- Trilha premium em loop usando Web Audio API
+- Botão de ligar/desligar som
+- Projeto React + Vite pronto para Vercel
 
 ## Rodar localmente
 
@@ -23,8 +24,3 @@ npm run dev
 - Framework: Vite
 - Build Command: `npm run build`
 - Output Directory: `dist`
-
-## Personalização
-
-As perguntas ficam no array `questions` em `src/main.jsx`.
-O tempo por pergunta fica em `QUESTION_TIME`.
